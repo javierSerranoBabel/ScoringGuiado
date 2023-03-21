@@ -15,7 +15,18 @@ public class PersonaServiceImpl implements PersonaService {
 
     @Override
     public Persona addPersona(Persona persona) {
+        return addPersonaDireccion(persona);
+
+    }
+
+    private Persona addPersonaDireccion(Persona persona){
         this.direccionMapper.insertDireccion(persona.getDireccionDomicilio());
+        if(persona.isDireccionDomicilioSameAsNotification()){
+            persona.setDireccionNotificacion(persona.getDireccionDomicilio());
+        }
+        else{
+            this.direccionMapper.insertDireccion(persona.getDireccionNotificacion());
+        }
         return persona;
     }
 }

@@ -13,6 +13,7 @@ public class Persona {
     private String apellido1;
     private String apellido2;
     private Direccion direccionDomicilio;
+    private boolean direccionDomicilioSameAsNotification = true;
     private Direccion direccionNotificacion;
     private String nif;
     private String nacionalidad;
