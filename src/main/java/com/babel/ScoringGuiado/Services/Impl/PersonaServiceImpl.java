@@ -1,5 +1,6 @@
 package com.babel.ScoringGuiado.Services.Impl;
 
+import com.babel.ScoringGuiado.Exceptions.RequiredMissingFieldException;
 import com.babel.ScoringGuiado.Models.Persona;
 import com.babel.ScoringGuiado.Persistance.Database.mappers.DireccionMapper;
 import com.babel.ScoringGuiado.Persistance.Database.mappers.PersonaMapper;
@@ -19,7 +20,9 @@ public class PersonaServiceImpl implements PersonaService {
 
     @Override
     @Transactional
-    public Persona addPersona(Persona persona) {
+    public Persona addPersona(Persona persona) throws RequiredMissingFieldException{
+        this.validatePersonaData(persona);
+
         persona = addPersonaDireccion(persona);
         this.personaMapper.insertPersona(persona);
 
@@ -36,5 +39,15 @@ public class PersonaServiceImpl implements PersonaService {
             this.direccionMapper.insertDireccion(persona.getDireccionNotificacion());
         }
         return persona;
+    }
+
+    private void validatePersonaData(Persona persona) throws RequiredMissingFieldException{
+        this.validateNombre(persona);
+
+    }
+    private void validateNombre(Persona persona) throws RequiredMissingFieldException{
+        if(persona.getNombre() == null || persona.getNombre().isEmpty()){
+            throw new RequiredMissingFieldException();
+        }
     }
 }
