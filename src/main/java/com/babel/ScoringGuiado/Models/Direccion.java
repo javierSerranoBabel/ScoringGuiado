@@ -7,9 +7,10 @@ import lombok.Setter;
 @Setter
 public class Direccion {
     private int direccionId;
-    private int tipoVia;
+    private int tipoViaId;
     private String nombreCalle;
     private String numero;
+    private String piso;
     private String codPostal;
     private String municipio;
     private String provinciaCod;
