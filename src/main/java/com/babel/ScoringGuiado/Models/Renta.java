@@ -14,6 +14,7 @@ public class Renta {
     private int importe;
     private boolean isCuentaPropia;
     private String iae;
-    private String cifEmpleado;
+    private String cifEmpleador;
     private Date fechaInicioEmpleo;
+    private Persona persona;
 }

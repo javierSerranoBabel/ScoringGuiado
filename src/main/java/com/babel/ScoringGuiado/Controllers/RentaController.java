@@ -17,7 +17,8 @@ public class RentaController {
 
     @PostMapping("/renta")
     ResponseEntity addRenta(@RequestBody Renta renta){
-        this.rentaService.addRenta(renta);
-        return ResponseEntity.ok(renta);
+        renta = this.rentaService.addRenta(renta);
+       // return ResponseEntity.ok(renta);
+        return ResponseEntity.ok(String.format("Renta añadida. id: %d",renta.getRentaId()));
     }
 }
