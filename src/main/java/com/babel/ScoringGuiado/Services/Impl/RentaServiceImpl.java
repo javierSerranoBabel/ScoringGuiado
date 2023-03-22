@@ -15,7 +15,16 @@ public class RentaServiceImpl implements RentaService {
 
     @Override
     public Renta addRenta(Renta renta) {
+        this.validateRenta(renta);
         this.rentaMapper.insert(renta);
         return renta;
+    }
+
+    private void validateRenta(Renta renta){
+
+    }
+
+    private void validatePersona(Renta renta){
+        
     }
 }
