@@ -19,7 +19,7 @@ public class PersonaController {
         this.personaService = personaService;
     }
 
-    @PostMapping("persona")
+    @PostMapping("/persona")
     ResponseEntity addPersona(@RequestBody Persona persona){
 
 
@@ -31,5 +31,10 @@ public class PersonaController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
         return ResponseEntity.ok(String.format("Persona añadida. id: %d",persona.getPersonaId()));
+    }
+
+    @PostMapping("/renta")
+    ResponseEntity addRenta(){
+        return ResponseEntity.ok("Endpoint renta encontrado");
     }
 }
