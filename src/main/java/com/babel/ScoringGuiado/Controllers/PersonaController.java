@@ -33,8 +33,5 @@ public class PersonaController {
         return ResponseEntity.ok(String.format("Persona añadida. id: %d",persona.getPersonaId()));
     }
 
-    @PostMapping("/renta")
-    ResponseEntity addRenta(){
-        return ResponseEntity.ok("Endpoint renta encontrado");
-    }
+
 }
